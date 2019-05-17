@@ -327,7 +327,7 @@ class opts(object):
                   }
       if opt.ce and opt.me:
         opt.heads.update('ce', opt.ce)
-        opt.heads.update('ce', opt.me)
+        opt.heads.update('me', opt.me)
         
       if opt.reg_offset:
         opt.heads.update({'reg': 2})
