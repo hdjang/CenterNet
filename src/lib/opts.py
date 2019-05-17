@@ -324,8 +324,11 @@ class opts(object):
       # assert opt.dataset in ['pascal', 'coco']
       opt.heads = {'hm': opt.num_classes,
                    'wh': 2 if not opt.cat_spec_wh else 2 * opt.num_classes,
-                   'ce': 1 if opt.ce else None,
-                   'me': 1 if opt.me else None}
+                  }
+      if opt.ce and opt.me:
+        opt.heads.update('ce', opt.ce)
+        opt.heads.update('ce', opt.me)
+        
       if opt.reg_offset:
         opt.heads.update({'reg': 2})
     elif opt.task == 'multi_pose':

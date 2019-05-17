@@ -241,3 +241,99 @@ Unexpected end of /proc/mounts line `OP4Q64VI2EAVU:/var/lib/docker/overlay2/l/YG
   warnings.warn(warning.format(ret))
 /opt/conda/lib/python3.6/site-packages/torch/nn/parallel/_functions.py:58: UserWarning: Was asked to gather along dimension 0, but all input tensors were scalars; will instead unsqueeze and return a vector.
   warnings.warn('Was asked to gather along dimension 0, but all '
+Keep resolution testing.
+training chunk_sizes: [32]
+The output will be saved to  /rcv/user/workspace/CenterNet/src/lib/../../exp/ctdet/coco_dla_1x
+heads {'hm': 80, 'wh': 2, 'ce': None, 'me': None, 'reg': 2}
+Namespace(K=100, aggr_weight=0.0, agnostic_ex=False, arch='dla_34', aug_ddd=0.5, aug_rot=0, batch_size=32, cat_spec_wh=False, ce=False, center_thresh=0.1, chunk_sizes=[32], data_dir='/rcv/user/workspace/CenterNet/src/lib/../../data', dataset='coco', debug=0, debug_dir='/rcv/user/workspace/CenterNet/src/lib/../../exp/ctdet/coco_dla_1x/debug', debugger_theme='white', demo='', dense_hp=False, dense_wh=False, dep_weight=1, dim_weight=1, down_ratio=4, em_weight=1, eval_oracle_dep=False, eval_oracle_hm=False, eval_oracle_hmhp=False, eval_oracle_hp_offset=False, eval_oracle_kps=False, eval_oracle_offset=False, eval_oracle_wh=False, exp_dir='/rcv/user/workspace/CenterNet/src/lib/../../exp/ctdet', exp_id='coco_dla_1x', fix_res=False, flip=0.5, flip_test=False, gpus=[0], gpus_str='0', head_conv=256, heads={'hm': 80, 'wh': 2, 'ce': None, 'me': None, 'reg': 2}, hide_data_time=False, hm_hp=True, hm_hp_weight=1, hm_weight=1, hp_weight=1, input_h=512, input_res=512, input_w=512, keep_res=True, kitti_split='3dop', load_model='/rcv/user/workspace/CenterNet/src/lib/../../exp/ctdet/coco_dla_1x/model_last.pth', lr=0.000125, lr_step=[90, 120], master_batch_size=32, me=False, mean=array([[[0.40789655, 0.44719303, 0.47026116]]], dtype=float32), metric='loss', mse_loss=False, nms=False, no_color_aug=False, norm_wh=False, not_cuda_benchmark=False, not_hm_hp=False, not_prefetch_test=False, not_rand_crop=False, not_reg_bbox=False, not_reg_hp_offset=False, not_reg_offset=False, num_classes=80, num_epochs=140, num_iters=-1, num_stacks=1, num_workers=4, off_weight=1, output_h=128, output_res=128, output_w=128, pad=31, peak_thresh=0.2, print_iter=0, rect_mask=False, reg_bbox=True, reg_hp_offset=True, reg_loss='l1', reg_offset=True, resume=True, root_dir='/rcv/user/workspace/CenterNet/src/lib/../..', rot_weight=1, rotate=0, save_all=False, save_dir='/rcv/user/workspace/CenterNet/src/lib/../../exp/ctdet/coco_dla_1x', scale=0.4, scores_thresh=0.1, seed=317, shift=0.1, std=array([[[0.2886383 , 0.27408165, 0.27809834]]], dtype=float32), task='ctdet', test=False, test_scales=[1.0], trainval=False, val_intervals=5, vis_thresh=0.3, wh_weight=0.1)
+==> initializing coco 2017 val data.
+loading annotations into memory...
+Done (t=0.88s)
+creating index...
+index created!
+Loaded val 5000 samples
+Creating model...
+Traceback (most recent call last):
+  File "test.py", line 126, in <module>
+    prefetch_test(opt)
+  File "test.py", line 58, in prefetch_test
+    detector = Detector(opt)
+  File "/rcv/user/workspace/CenterNet/src/lib/detectors/ctdet.py", line 22, in __init__
+    super(CtdetDetector, self).__init__(opt)
+  File "/rcv/user/workspace/CenterNet/src/lib/detectors/base_detector.py", line 24, in __init__
+    self.model = create_model(opt.arch, opt.heads, opt.head_conv)
+  File "/rcv/user/workspace/CenterNet/src/lib/models/model.py", line 28, in create_model
+    model = get_model(num_layers=num_layers, heads=heads, head_conv=head_conv)
+  File "/rcv/user/workspace/CenterNet/src/lib/models/networks/pose_dla_dcn.py", line 491, in get_pose_net
+    head_conv=head_conv)
+  File "/rcv/user/workspace/CenterNet/src/lib/models/networks/pose_dla_dcn.py", line 455, in __init__
+    padding=final_kernel // 2, bias=True))
+  File "/opt/conda/lib/python3.6/site-packages/torch/nn/modules/conv.py", line 297, in __init__
+    False, _pair(0), groups, bias)
+  File "/opt/conda/lib/python3.6/site-packages/torch/nn/modules/conv.py", line 17, in __init__
+    if out_channels % groups != 0:
+TypeError: unsupported operand type(s) for %: 'NoneType' and 'int'
+Keep resolution testing.
+training chunk_sizes: [32]
+The output will be saved to  /rcv/user/workspace/CenterNet/src/lib/../../exp/ctdet/coco_dla_1x
+heads {'hm': 80, 'wh': 2, 'ce': None, 'me': None, 'reg': 2}
+Namespace(K=100, aggr_weight=0.0, agnostic_ex=False, arch='dla_34', aug_ddd=0.5, aug_rot=0, batch_size=32, cat_spec_wh=False, ce=False, center_thresh=0.1, chunk_sizes=[32], data_dir='/rcv/user/workspace/CenterNet/src/lib/../../data', dataset='coco', debug=0, debug_dir='/rcv/user/workspace/CenterNet/src/lib/../../exp/ctdet/coco_dla_1x/debug', debugger_theme='white', demo='', dense_hp=False, dense_wh=False, dep_weight=1, dim_weight=1, down_ratio=4, em_weight=1, eval_oracle_dep=False, eval_oracle_hm=False, eval_oracle_hmhp=False, eval_oracle_hp_offset=False, eval_oracle_kps=False, eval_oracle_offset=False, eval_oracle_wh=False, exp_dir='/rcv/user/workspace/CenterNet/src/lib/../../exp/ctdet', exp_id='coco_dla_1x', fix_res=False, flip=0.5, flip_test=True, gpus=[0], gpus_str='0', head_conv=256, heads={'hm': 80, 'wh': 2, 'ce': None, 'me': None, 'reg': 2}, hide_data_time=False, hm_hp=True, hm_hp_weight=1, hm_weight=1, hp_weight=1, input_h=512, input_res=512, input_w=512, keep_res=True, kitti_split='3dop', load_model='/rcv/user/workspace/CenterNet/src/lib/../../exp/ctdet/coco_dla_1x/model_last.pth', lr=0.000125, lr_step=[90, 120], master_batch_size=32, me=False, mean=array([[[0.40789655, 0.44719303, 0.47026116]]], dtype=float32), metric='loss', mse_loss=False, nms=False, no_color_aug=False, norm_wh=False, not_cuda_benchmark=False, not_hm_hp=False, not_prefetch_test=False, not_rand_crop=False, not_reg_bbox=False, not_reg_hp_offset=False, not_reg_offset=False, num_classes=80, num_epochs=140, num_iters=-1, num_stacks=1, num_workers=4, off_weight=1, output_h=128, output_res=128, output_w=128, pad=31, peak_thresh=0.2, print_iter=0, rect_mask=False, reg_bbox=True, reg_hp_offset=True, reg_loss='l1', reg_offset=True, resume=True, root_dir='/rcv/user/workspace/CenterNet/src/lib/../..', rot_weight=1, rotate=0, save_all=False, save_dir='/rcv/user/workspace/CenterNet/src/lib/../../exp/ctdet/coco_dla_1x', scale=0.4, scores_thresh=0.1, seed=317, shift=0.1, std=array([[[0.2886383 , 0.27408165, 0.27809834]]], dtype=float32), task='ctdet', test=False, test_scales=[1.0], trainval=False, val_intervals=5, vis_thresh=0.3, wh_weight=0.1)
+==> initializing coco 2017 val data.
+loading annotations into memory...
+Done (t=0.47s)
+creating index...
+index created!
+Loaded val 5000 samples
+Creating model...
+Traceback (most recent call last):
+  File "test.py", line 126, in <module>
+    prefetch_test(opt)
+  File "test.py", line 58, in prefetch_test
+    detector = Detector(opt)
+  File "/rcv/user/workspace/CenterNet/src/lib/detectors/ctdet.py", line 22, in __init__
+    super(CtdetDetector, self).__init__(opt)
+  File "/rcv/user/workspace/CenterNet/src/lib/detectors/base_detector.py", line 24, in __init__
+    self.model = create_model(opt.arch, opt.heads, opt.head_conv)
+  File "/rcv/user/workspace/CenterNet/src/lib/models/model.py", line 28, in create_model
+    model = get_model(num_layers=num_layers, heads=heads, head_conv=head_conv)
+  File "/rcv/user/workspace/CenterNet/src/lib/models/networks/pose_dla_dcn.py", line 491, in get_pose_net
+    head_conv=head_conv)
+  File "/rcv/user/workspace/CenterNet/src/lib/models/networks/pose_dla_dcn.py", line 455, in __init__
+    padding=final_kernel // 2, bias=True))
+  File "/opt/conda/lib/python3.6/site-packages/torch/nn/modules/conv.py", line 297, in __init__
+    False, _pair(0), groups, bias)
+  File "/opt/conda/lib/python3.6/site-packages/torch/nn/modules/conv.py", line 17, in __init__
+    if out_channels % groups != 0:
+TypeError: unsupported operand type(s) for %: 'NoneType' and 'int'
+Keep resolution testing.
+training chunk_sizes: [32]
+The output will be saved to  /rcv/user/workspace/CenterNet/src/lib/../../exp/ctdet/coco_dla_1x
+heads {'hm': 80, 'wh': 2, 'ce': None, 'me': None, 'reg': 2}
+Namespace(K=100, aggr_weight=0.0, agnostic_ex=False, arch='dla_34', aug_ddd=0.5, aug_rot=0, batch_size=32, cat_spec_wh=False, ce=False, center_thresh=0.1, chunk_sizes=[32], data_dir='/rcv/user/workspace/CenterNet/src/lib/../../data', dataset='coco', debug=0, debug_dir='/rcv/user/workspace/CenterNet/src/lib/../../exp/ctdet/coco_dla_1x/debug', debugger_theme='white', demo='', dense_hp=False, dense_wh=False, dep_weight=1, dim_weight=1, down_ratio=4, em_weight=1, eval_oracle_dep=False, eval_oracle_hm=False, eval_oracle_hmhp=False, eval_oracle_hp_offset=False, eval_oracle_kps=False, eval_oracle_offset=False, eval_oracle_wh=False, exp_dir='/rcv/user/workspace/CenterNet/src/lib/../../exp/ctdet', exp_id='coco_dla_1x', fix_res=False, flip=0.5, flip_test=True, gpus=[0], gpus_str='0', head_conv=256, heads={'hm': 80, 'wh': 2, 'ce': None, 'me': None, 'reg': 2}, hide_data_time=False, hm_hp=True, hm_hp_weight=1, hm_weight=1, hp_weight=1, input_h=512, input_res=512, input_w=512, keep_res=True, kitti_split='3dop', load_model='/rcv/user/workspace/CenterNet/src/lib/../../exp/ctdet/coco_dla_1x/model_last.pth', lr=0.000125, lr_step=[90, 120], master_batch_size=32, me=False, mean=array([[[0.40789655, 0.44719303, 0.47026116]]], dtype=float32), metric='loss', mse_loss=False, nms=False, no_color_aug=False, norm_wh=False, not_cuda_benchmark=False, not_hm_hp=False, not_prefetch_test=False, not_rand_crop=False, not_reg_bbox=False, not_reg_hp_offset=False, not_reg_offset=False, num_classes=80, num_epochs=140, num_iters=-1, num_stacks=1, num_workers=4, off_weight=1, output_h=128, output_res=128, output_w=128, pad=31, peak_thresh=0.2, print_iter=0, rect_mask=False, reg_bbox=True, reg_hp_offset=True, reg_loss='l1', reg_offset=True, resume=True, root_dir='/rcv/user/workspace/CenterNet/src/lib/../..', rot_weight=1, rotate=0, save_all=False, save_dir='/rcv/user/workspace/CenterNet/src/lib/../../exp/ctdet/coco_dla_1x', scale=0.4, scores_thresh=0.1, seed=317, shift=0.1, std=array([[[0.2886383 , 0.27408165, 0.27809834]]], dtype=float32), task='ctdet', test=False, test_scales=[0.5, 0.75, 1.0, 1.25, 1.5], trainval=False, val_intervals=5, vis_thresh=0.3, wh_weight=0.1)
+==> initializing coco 2017 val data.
+loading annotations into memory...
+Done (t=0.73s)
+creating index...
+index created!
+Loaded val 5000 samples
+Creating model...
+Traceback (most recent call last):
+  File "test.py", line 126, in <module>
+    prefetch_test(opt)
+  File "test.py", line 58, in prefetch_test
+    detector = Detector(opt)
+  File "/rcv/user/workspace/CenterNet/src/lib/detectors/ctdet.py", line 22, in __init__
+    super(CtdetDetector, self).__init__(opt)
+  File "/rcv/user/workspace/CenterNet/src/lib/detectors/base_detector.py", line 24, in __init__
+    self.model = create_model(opt.arch, opt.heads, opt.head_conv)
+  File "/rcv/user/workspace/CenterNet/src/lib/models/model.py", line 28, in create_model
+    model = get_model(num_layers=num_layers, heads=heads, head_conv=head_conv)
+  File "/rcv/user/workspace/CenterNet/src/lib/models/networks/pose_dla_dcn.py", line 491, in get_pose_net
+    head_conv=head_conv)
+  File "/rcv/user/workspace/CenterNet/src/lib/models/networks/pose_dla_dcn.py", line 455, in __init__
+    padding=final_kernel // 2, bias=True))
+  File "/opt/conda/lib/python3.6/site-packages/torch/nn/modules/conv.py", line 297, in __init__
+    False, _pair(0), groups, bias)
+  File "/opt/conda/lib/python3.6/site-packages/torch/nn/modules/conv.py", line 17, in __init__
+    if out_channels % groups != 0:
+TypeError: unsupported operand type(s) for %: 'NoneType' and 'int'
